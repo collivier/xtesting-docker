@@ -1,0 +1,8 @@
+build-blocker-plugin
+git
+git-client
+gerrit-code-review
+gerrit-trigger
+gerrit-verify-status-reporter
+jenkins-multijob-plugin
+nodelabelparameter
