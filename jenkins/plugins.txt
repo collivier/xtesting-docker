@@ -6,3 +6,4 @@ gerrit-trigger
 gerrit-verify-status-reporter
 jenkins-multijob-plugin
 nodelabelparameter
+random-string-parameter
