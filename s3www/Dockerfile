@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine3.10
+FROM golang:1.14-alpine3.11
 
 ENV ENDPOINT http://127.0.0.1:9000
 ENV ACCESSKEY xtesting
