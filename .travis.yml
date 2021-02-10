@@ -55,3 +55,24 @@ jobs:
           --platforms linux/amd64,linux/arm,linux/arm64 \
           --template ${DOCKER_USERNAME}/xtesting-jenkins-agent-auto:ARCH-latest \
           --target ${DOCKER_USERNAME}/xtesting-jenkins-agent-auto:latest
+    - stage: build jenkins-agent images (Ubuntu)
+      script: >
+        (cd jenkins-agent-ubuntu && \
+          sudo docker build -t ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-amd64-latest . && \
+          sudo docker push ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-amd64-latest)
+    - script: >
+        (cd jenkins-agent-ubuntu && \
+          sed -i -e "s|ubuntu:bionic|arm32v7/ubuntu:bionic|g" Dockerfile && \
+          sudo docker build -t ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-arm-latest . && \
+          sudo docker push ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-arm-latest)
+    - script: >
+        (cd jenkins-agent-ubuntu && \
+          sed -i -e "s|ubuntu:bionic|arm64v8/ubuntu:bionic|g" Dockerfile && \
+          sudo docker build -t ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-arm64-latest . && \
+          sudo docker push ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-arm64-latest)
+    - stage: publish jenkins-agent manifests (Ubuntu)
+      script: >
+        sudo manifest-tool push from-args \
+          --platforms linux/amd64,linux/arm,linux/arm64 \
+          --template ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-ARCH-latest \
+          --target ${DOCKER_USERNAME}/xtesting-jenkins-agent:ubuntu-latest

@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:bionic
 
 ARG VERSION=3.36
 
