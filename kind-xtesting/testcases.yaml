@@ -1,0 +1,27 @@
+---
+tiers:
+  - name: kind
+    testcases:
+      - case_name: kind
+        project_name: xtesting
+        run:
+          name: bashfeature
+          args:
+            cmd: |
+              cat << EOF > kind.yaml
+              ---
+              kind: Cluster
+              apiVersion: kind.x-k8s.io/v1alpha4
+              networking:
+                apiServerAddress: $(ip route get 1.1.1.1 | grep -oP 'src \K\S+')
+              nodes:
+              - role: control-plane
+                image: kindest/node:v1.20.2
+              - role: worker
+                image: kindest/node:v1.20.2
+              - role: worker
+                image: kindest/node:v1.20.2
+              EOF
+              kind delete cluster --name kind-xtesting
+              kind create cluster --config kind.yaml --kubeconfig config \
+                --name kind-xtesting
