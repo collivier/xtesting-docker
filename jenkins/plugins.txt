@@ -8,3 +8,4 @@ jenkins-multijob-plugin
 nodelabelparameter
 random-string-parameter
 copyartifact
+configuration-as-code
