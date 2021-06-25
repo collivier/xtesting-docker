@@ -13,14 +13,14 @@ tiers:
               kind: Cluster
               apiVersion: kind.x-k8s.io/v1alpha4
               networking:
-                apiServerAddress: $(ip route get 1.1.1.1 | grep -oP 'src \K\S+')
+                apiServerAddress: ${apiServerAddress:=127.0.0.1}
               nodes:
               - role: control-plane
-                image: kindest/node:v1.20.2
+                image: kindest/node:v1.21.1
               - role: worker
-                image: kindest/node:v1.20.2
+                image: kindest/node:v1.21.1
               - role: worker
-                image: kindest/node:v1.20.2
+                image: kindest/node:v1.21.1
               EOF
               kind delete cluster --name kind-xtesting
               kind create cluster --config kind.yaml --kubeconfig config \
