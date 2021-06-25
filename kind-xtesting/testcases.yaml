@@ -23,5 +23,4 @@ tiers:
                 image: kindest/node:v1.21.1
               EOF
               kind delete cluster --name kind-xtesting
-              kind create cluster --config kind.yaml --kubeconfig config \
-                --name kind-xtesting
+              kind create cluster --config kind.yaml --name kind-xtesting
