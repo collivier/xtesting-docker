@@ -3,7 +3,7 @@ tiers:
   - name: kind
     testcases:
       - case_name: kind
-        project_name: xtesting
+        project_name: kind
         run:
           name: bashfeature
           args:
