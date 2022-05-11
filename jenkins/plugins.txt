@@ -9,3 +9,5 @@ nodelabelparameter
 random-string-parameter
 copyartifact
 configuration-as-code
+email-ext
+build-timeout
