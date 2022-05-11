@@ -5,6 +5,6 @@ ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV CASC_JENKINS_CONFIG="/var/jenkins_home/casc_configs"
 COPY plugins.txt plugins.txt
 COPY jenkins.yaml /usr/share/jenkins/ref/casc_configs/jenkins.yaml
-RUN apt-get update && apt-get install docker.io -y && \
+RUN apt-get update && apt-get dist-upgrade -y && apt-get install docker.io -y && \
     /usr/local/bin/install-plugins.sh < plugins.txt && \
     rm plugins.txt

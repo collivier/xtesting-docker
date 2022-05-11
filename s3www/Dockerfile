@@ -5,7 +5,8 @@ ENV ACCESSKEY xtesting
 ENV SECRETKEY xtesting
 ENV BUCKET xtesting
 
-RUN apk --no-cache add --virtual .build-deps --update git && \
+RUN apk -U upgrade && \
+    apk --no-cache add --virtual .build-deps --update git && \
     go get github.com/harshavardhana/s3www@v0.5.3 && \
     rm -rf /go/src && \
     apk del .build-deps
