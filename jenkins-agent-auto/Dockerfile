@@ -1,4 +1,4 @@
-FROM opnfv/xtesting-jenkins-agent
+FROM opnfv/xtesting-jenkins-agent:3.36-buster
 
 COPY auto.sh /usr/local/bin/auto.sh
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install curl -y && \
