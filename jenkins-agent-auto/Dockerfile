@@ -1,4 +1,4 @@
-FROM ollivier/xtesting-jenkins-agent
+FROM opnfv/xtesting-jenkins-agent
 
 COPY auto.sh /usr/local/bin/auto.sh
 RUN apt-get update && apt-get install curl -y && \
