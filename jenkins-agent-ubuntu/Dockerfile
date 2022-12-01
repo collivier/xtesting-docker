@@ -1,6 +1,6 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
-ARG VERSION=3.36
+ARG VERSION=4.9
 
 RUN apt-get update && apt-get dist-upgrade -y && \
     apt-get install openjdk-11-jre git-lfs docker.io curl -y && \

@@ -7,5 +7,5 @@ COPY plugins.txt plugins.txt
 COPY jenkins.yaml /usr/share/jenkins/ref/casc_configs/jenkins.yaml
 RUN apk -U upgrade && \
     apk --no-cache add --update docker && \
-    /usr/local/bin/install-plugins.sh < plugins.txt && \
+    jenkins-plugin-cli -f plugins.txt && \
     rm plugins.txt
