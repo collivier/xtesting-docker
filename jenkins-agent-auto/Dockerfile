@@ -1,4 +1,4 @@
-FROM opnfv/xtesting-jenkins-agent:4.9-bullseye
+FROM opnfv/xtesting-jenkins-agent:3283-bullseye
 
 COPY auto.sh /usr/local/bin/auto.sh
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install curl -y && \

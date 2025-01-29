@@ -1,9 +1,9 @@
 FROM ubuntu:jammy
 
-ARG VERSION=4.9
+ARG VERSION=3283.v92c105e0f819
 
 RUN apt-get update && apt-get dist-upgrade -y && \
-    apt-get install openjdk-11-jre git-lfs docker.io curl podman -y && \
+    apt-get install openjdk-17-jre git-lfs docker.io curl podman -y && \
     curl --create-dirs -k -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar && \
     curl --create-dirs -k -fsSLo /usr/local/bin/jenkins-agent https://raw.githubusercontent.com/jenkinsci/docker-inbound-agent/master/jenkins-agent && \
     mkdir -p ~/.config/containers && \
